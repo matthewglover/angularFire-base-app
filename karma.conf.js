@@ -1,3 +1,4 @@
+'use strict';
 // Karma configuration
 // http://karma-runner.github.io/0.10/config/configuration-file.html
 
@@ -17,7 +18,14 @@ module.exports = function(config) {
       'app/scripts/*.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
-      'test/spec/**/*.js'
+      'app/scripts/*.js',
+      'app/scripts/**/*.js',
+      'test/mock/**/*.js',
+      'test/spec/**/*.js',
+      'test/helper/**/*.js',
+      'app/scripts/vendor/firebase/firebase_v0.js',
+      'app/scripts/vendor/firebase/firebase-simple-login_v0.js',
+      'app/scripts/vendor/firebase/angularfire_v0.5.0.js'
     ],
 
     // list of files / patterns to exclude
@@ -43,7 +51,7 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['Chrome'],
+    browsers: ['ChromeCanary'],
 
 
     // Continuous Integration mode
