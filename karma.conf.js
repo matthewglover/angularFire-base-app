@@ -23,9 +23,9 @@ module.exports = function(config) {
       'test/mock/**/*.js',
       'test/spec/**/*.js',
       'test/helper/**/*.js',
-      'app/scripts/vendor/firebaseConf/firebase_v0.js',
-      'app/scripts/vendor/firebaseConf/firebase-simple-login_v0.js',
-      'app/scripts/vendor/firebaseConf/angularfire_v0.5.0.js'
+      'app/vendor/firebaseConf/firebase_v0.js',
+      'app/vendor/firebaseConf/firebase-simple-login_v0.js',
+      'app/vendor/firebaseConf/angularfire_v0.5.0.js'
     ],
 
     // list of files / patterns to exclude
