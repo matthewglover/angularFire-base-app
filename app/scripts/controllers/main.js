@@ -1,10 +1,33 @@
 'use strict';
 
-angular.module('angularFireBaseAppApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+angular.module( 'app.controllers' )
+  .controller( 'MainCtrl', function ( $scope,
+    FirebaseAuthenticate, $rootScope, $location, AUTH_PATH ) {
+    // *********************************************
+    // Private functions
+    // *********************************************
+
+
+    // *********************************************
+    // Public methods
+    // *********************************************
+
+    $scope.logout = function ( ) {
+      FirebaseAuthenticate.logout();
+    };
+
+    // *********************************************
+    // Configuration
+    // *********************************************
+    $scope.data = {};
+
+    // When user logs out, redirect to the default authentication path
+    $rootScope.$on('$firebaseAuth:logout', function( ) {
+      $location.path( AUTH_PATH );
+    });
+
+    // *********************************************
+    // Initialisation
+    // *********************************************
+
+  });  //End controller

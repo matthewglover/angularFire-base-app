@@ -2,30 +2,50 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>Angular Fire Test App</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="angularFireBaseAppApp">
+  <body ng-app="myApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    <div ng-cloak-auth class="hide app-main">
+      <div ng-controller="HeaderCtrl"></div>
+      <div class="content" ng-view>
+      </div>
+
+    </div>
+
+    <div ng-cloak-on-auth class="authorizing v-align-wrapper">
+      <div class="v-align-content">
+        <div class="v-align-fallback">
+
+          <div class="h-align-content" style="width: 30%;">
+            <div class="progress progress-striped active">
+              <div class="progress-bar progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                <span class="sr-only">Authorizing user</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -52,9 +72,25 @@
     <!-- endbower -->
     <!-- endbuild -->
 
+    <!-- <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+    <script src="https://cdn.firebase.com/v0/firebase-simple-login.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.5.0/angularfire.js"></script>-->
+    <script src="vendor/firebaseCore/firebase_v0.js"></script>
+    <script src="vendor/firebaseCore/firebase-simple-login_v0.js"></script>
+    <script src="vendor/firebaseCore/angularfire_v0.5.0.js"></script>
+
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/signup.js"></script>
+        <script src="scripts/controllers/header.js"></script>
+        <script src="scripts/packages/firebaseGateway/config.js"></script>
+        <script src="scripts/packages/firebaseGateway/services/firebaseRef.js"></script>
+        <script src="scripts/packages/firebaseGateway/services/authenticate.js"></script>
+        <script src="scripts/packages/firebaseGateway/services/profile.js"></script>
+        <script src="scripts/packages/firebaseGateway/services/syncData.js"></script>
+        <script src="scripts/directives/module.waitForAuth.js"></script>
         <!-- endbuild -->
 </body>
 </html>

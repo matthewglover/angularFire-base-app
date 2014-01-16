@@ -29,7 +29,7 @@ module.exports = function (grunt) {
         }
       },
       jsTest: {
-        files: ['test/spec/**/*.js'],
+        files: ['test/spec/**/*.js', 'test/mock/**/*.js'],
         tasks: ['newer:jshint:test', 'karma']
       },
       compass: {
@@ -61,7 +61,7 @@ module.exports = function (grunt) {
       },
       livereload: {
         options: {
-          open: true,
+          open: false,
           base: [
             '.tmp',
             '<%= yeoman.app %>'
